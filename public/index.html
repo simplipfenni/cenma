@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Website Builder</title>
+  <link href="https://unpkg.com/grapesjs/dist/css/grapes.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/grapesjs"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+  <style>
+    html, body { height: 100%; margin: 0; }
+    #editor { height: 100vh; }
+    #saveBtn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 999;
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="editor"></div>
+  <button id="saveBtn">Veröffentlichen</button>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDoK4LIreG0LMCBDAZ1hry3MGR8bQrKLZw",
+      authDomain: "cenma-me.firebaseapp.com",
+      databaseURL: "https://cenma-me-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "cenma-me",
+      storageBucket: "cenma-me.firebasestorage.app",
+      messagingSenderId: "626482599574",
+      appId: "1:626482599574:web:9dec1ea3961fb6d9e4d4b7",
+      measurementId: "G-QW6K5QEVYD"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const editor = grapesjs.init({
+      container: '#editor',
+      fromElement: false,
+      height: '100%',
+      width: 'auto',
+      storageManager: false,
+      components: '<section><h1>Hallo Welt</h1><p>Bearbeite mich mit dem Editor.</p></section>'
+    });
+
+    document.getElementById('saveBtn').onclick = async () => {
+      const html = editor.getHtml();
+      const css = editor.getCss();
+      const doc = await db.collection('pages').add({
+        html: html,
+        css: css,
+        createdAt: new Date()
+      });
+      alert('Seite gespeichert! Vorschau-Link: seite.html?id=' + doc.id);
+    };
+  </script>
+</body>
+</html>
