@@ -1,0 +1,81 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>Cenma – Starte deine Seite</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  <style>
+    #custom-actions {
+      margin-top: 2em;
+      text-align: center;
+    }
+    #custom-actions input {
+      padding: 0.5em;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1em;
+      width: 200px;
+      margin-right: 10px;
+    }
+    #custom-actions button, #custom-actions a.button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 0.6em 1.2em;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 1em;
+    }
+    #custom-actions a.button {
+      display: inline-block;
+      margin-bottom: 1em;
+    }
+  </style>
+</head>
+<body class="is-preload">
+  <div id="wrapper">
+
+    <section id="main">
+      <header>
+        <span class="avatar"><img src="images/avatar.jpg" alt="" /></span>
+        <h1>Cenma</h1>
+        <p>A (free) responsive site template by HTML5 UP. Built with HTML5/CSS3 and released under the CCA license.</p>
+      </header>
+
+      <footer>
+        <div id="custom-actions">
+          <a href="editor.html" class="button">🧱 Eigene Seite erstellen</a><br />
+          <input type="text" id="pageId" placeholder="Seiten-ID eingeben..." />
+          <button onclick="showPage()">🔍 Seite anzeigen</button>
+        </div>
+      </footer>
+    </section>
+
+    <footer id="footer">
+      <ul class="icons">
+        <li><a href="#" class="icon brands fa-twitter">Twitter</a></li>
+        <li><a href="#" class="icon brands fa-facebook-f">Facebook</a></li>
+        <li><a href="#" class="icon brands fa-instagram">Instagram</a></li>
+        <li><a href="#" class="icon solid fa-envelope">Email</a></li>
+      </ul>
+      <p>&copy; Cenma. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    function showPage() {
+      const id = document.getElementById('pageId').value.trim();
+      if (id) {
+        window.location.href = 'seite.html?id=' + id;
+      } else {
+        alert("Bitte gib eine gültige ID ein.");
+      }
+    }
+  </script>
+</body>
+</html>
