@@ -1,65 +1,60 @@
-<!DOCTYPE html>
+
+<!DOCTYPE HTML>
 <html>
-<head>
-  <meta charset="UTF-8" />
-  <title>Willkommen bei Cenma</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #f5f5f5;
-    }
-    h1 {
-      margin-bottom: 40px;
-    }
-    button {
-      padding: 12px 24px;
-      margin: 10px;
-      font-size: 16px;
-      cursor: pointer;
-      border: none;
-      border-radius: 6px;
-      background-color: #4CAF50;
-      color: white;
-    }
-    #idSection {
-      display: none;
-      margin-top: 20px;
-    }
-    input {
-      padding: 10px;
-      font-size: 16px;
-      margin-right: 10px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-  </style>
-</head>
-<body>
-  <h1>Willkommen bei Cenma</h1>
-
-  <button onclick="window.location.href='editor.html'">🧱 Eigene Seite erstellen</button>
-  <button onclick="document.getElementById('idSection').style.display = 'block'">🔍 Bestehende Seite anzeigen</button>
-
-  <div id="idSection">
-    <input id="pageId" type="text" placeholder="Seiten-ID eingeben..." />
-    <button onclick="showPage()">Anzeigen</button>
-  </div>
-
-  <script>
-    function showPage() {
-      const id = document.getElementById('pageId').value.trim();
-      if (id) {
-        window.location.href = `seite.html?id=${id}`;
-      } else {
-        alert("Bitte gib eine gültige ID ein.");
+  <head>
+    <title>Cenma – Starte deine eigene Seite</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+      #idSection {
+        margin-top: 2em;
+        display: flex;
+        justify-content: center;
+        gap: 0.5em;
       }
-    }
-  </script>
-</body>
+      #idSection input {
+        padding: 0.5em;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1em;
+      }
+      #idSection button {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body class="is-preload">
+    <div id="wrapper">
+      <section id="main" class="wrapper">
+        <div class="inner" style="text-align: center;">
+          <h1 class="major">Willkommen bei Cenma</h1>
+          <p>Erstelle deine eigene Mini-Webseite oder zeige eine bestehende Seite an.</p>
+          <ul class="actions stacked">
+            <li><a href="editor.html" class="button primary fit">🧱 Eigene Seite erstellen</a></li>
+          </ul>
+          <div id="idSection">
+            <input type="text" id="pageId" placeholder="Seiten-ID eingeben..." />
+            <button onclick="showPage()">Anzeigen</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script>
+      function showPage() {
+        const id = document.getElementById('pageId').value.trim();
+        if (id) {
+          window.location.href = 'seite.html?id=' + id;
+        } else {
+          alert("Bitte gib eine gültige ID ein.");
+        }
+      }
+    </script>
+  </body>
 </html>
