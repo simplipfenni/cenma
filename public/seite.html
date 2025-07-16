@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Vorschau deiner Seite</title>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+</head>
+<body>
+  <div id="output">Lade Inhalte...</div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyDoK4LIreG0LMCBDAZ1hry3MGR8bQrKLZw",
+      authDomain: "cenma-me.firebaseapp.com",
+      databaseURL: "https://cenma-me-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "cenma-me",
+      storageBucket: "cenma-me.firebasestorage.app",
+      messagingSenderId: "626482599574",
+      appId: "1:626482599574:web:9dec1ea3961fb6d9e4d4b7",
+      measurementId: "G-QW6K5QEVYD"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+
+    if (!id) {
+      document.getElementById('output').innerText = 'Fehlende ID in der URL.';
+    } else {
+      db.collection('pages').doc(id).get().then(doc => {
+        if (!doc.exists) {
+          document.getElementById('output').innerText = 'Seite nicht gefunden.';
+          return;
+        }
+        const data = doc.data();
+        const style = document.createElement('style');
+        style.innerHTML = data.css;
+        document.head.appendChild(style);
+        document.getElementById('output').innerHTML = data.html;
+      });
+    }
+  </script>
+</body>
+</html>
