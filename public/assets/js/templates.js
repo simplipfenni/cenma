@@ -1,8 +1,8 @@
 window.templates = {
   blank: '',
-  business: `<section><h1>Business Card</h1><p>Max Muster – Berater</p></section>`,
-  love: `<section><h2>Love Memories</h2><p>Gemeinsame Zeit & Erinnerungen</p></section>`,
-  family: `<section><h2>Family</h2><p>Unsere Familie – unsere Geschichte</p></section>`,
-  celebration: `<section><h2>Celebration</h2><p>Feiere mit uns diesen Moment!</p></section>`,
-  event: `<section><h2>Event</h2><p>Alle Infos zu deinem Anlass</p></section>`
+  business: `<section style="padding:2rem;text-align:center;"><h1>Max Muster</h1><p>Berater | Speaker | Entwickler</p></section>`,
+  love: `<section style="padding:2rem;background:#ffe6e6;text-align:center;"><h2>Unsere Love Memories</h2><p>Gemeinsame Erlebnisse festgehalten in einem Moment</p></section>`,
+  family: `<section style="padding:2rem;background:#f0f8ff;text-align:center;"><h2>Familie</h2><p>Unsere wertvollste Verbindung</p></section>`,
+  celebration: `<section style="padding:2rem;background:#fff3cd;text-align:center;"><h2>🎉 Celebration</h2><p>Lass uns gemeinsam feiern!</p></section>`,
+  event: `<section style="padding:2rem;text-align:center;"><h2>Event XY</h2><p>Datum: 12.12.2025<br>Ort: Zürich<br><a href="#">Jetzt teilnehmen</a></p></section>`
 };
