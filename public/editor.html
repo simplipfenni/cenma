@@ -25,7 +25,7 @@
     }
 
 #editor-wrapper {
-  max-width: 1860px;
+  max-width: 1260px;
   margin: 40px auto;
   padding: 20px;
   background: rgba(255, 255, 255, 0.03);
@@ -35,22 +35,21 @@
 }
 
 #gjs {
-  height: 80vh;      /* wichtig: Canvas ist sichtbar */
-  min-height: 500px;
+  height: 100%;
+  min-height: 600px;
   background: white;
-  border-radius: 6px;
-  overflow: hidden;
+  position: relative;
 }
 
-/* GrapesJS Canvas-Fixes */
 .gjs-cv-canvas,
 .gjs-cv-canvas iframe {
-  min-height: 100% !important;
   height: 100% !important;
-  width: 100% !important;
-  display: block;
+  min-height: 100% !important;
   background-color: white;
+  display: block;
   border: none;
+  position: relative;
+  z-index: 10;
 }
     #saveBtn {
       position: absolute;
@@ -110,11 +109,12 @@
     fromElement: false,
     storageManager: false,
     canvas: {
-       styles: [
+  styles: [
+    'html, body { height: 100%; margin: 0; padding: 0; }',
     'body { background: white; padding: 40px; font-family: sans-serif; color: #222; }',
-    'html, body { height: 100%; margin: 0; }'
+    '* { box-sizing: border-box; }'
   ]
-    },
+},
     components: initialHTML
     });
 
