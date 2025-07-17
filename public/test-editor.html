@@ -51,16 +51,16 @@
 
    const editor = grapesjs.init({
   container: '#gjs',
-  height: '100%',
   fromElement: false,
   storageManager: false,
   components: templateHTML,
   canvas: {
     styles: [
-      'body { background: white; padding: 40px; font-family: sans-serif; }',
-      'html, body { height: 100%; margin: 0; }'
+      'html, body { height: 100%; margin: 0; padding: 0; }',
+      'body { background: white; padding: 40px; font-family: sans-serif; }'
     ]
   }
+  // ❌ KEIN "height: '100%'" hier
 });
   </script>
 </body>
