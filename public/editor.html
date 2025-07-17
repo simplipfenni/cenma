@@ -35,10 +35,23 @@
     }
 
     #editor {
-      height: 75vh;
+      min-height: 600px;
       background: #ffffff;
       border-radius: 6px;
       overflow: hidden;
+      z-index: 100;
+    }
+
+    .editor-cv-canvas {
+      background-color: white;
+      min-height: 100%;
+    }
+
+    .editor-cv-canvas iframe {
+      background-color: white;
+      min-height: 100%;
+      width: 100%;
+      border: none;
     }
 
     #saveBtn {
