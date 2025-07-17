@@ -22,10 +22,9 @@
 }
 
 #gjs {
-  height: 75vh;
+  height: 80vh !important;
   min-height: 600px;
   background: white;
-  border: 1px solid #ccc;
   overflow: hidden;
 }
 
@@ -50,20 +49,19 @@
   <script>
     const fallbackHTML = `<section style="padding: 40px;"><h1>Canvas sichtbar 🎉</h1><p>Du kannst loslegen!</p></section>`;
 
-    grapesjs.init({
-      container: '#gjs',
-      fromElement: false,
-      height: '100%',
-      width: 'auto',
-      storageManager: false,
-      canvas: {
-        styles: [
-          'html, body { height: 100%; margin: 0; padding: 0; }',
-          'body { background: white; padding: 40px; font-family: sans-serif; color: #222; }'
-        ]
-      },
-      components: fallbackHTML
-    });
+   nst editor = grapesjs.init({
+  container: '#gjs',
+  height: '100%',
+  fromElement: false,
+  storageManager: false,
+  components: templateHTML,
+  canvas: {
+    styles: [
+      'body { background: white; padding: 40px; font-family: sans-serif; }',
+      'html, body { height: 100%; margin: 0; }'
+    ]
+  }
+});
   </script>
 </body>
 </html>
