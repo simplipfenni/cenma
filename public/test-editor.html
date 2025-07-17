@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Editor Test</title>
+  <link href="https://unpkg.com/grapesjs/dist/css/grapes.min.css" rel="stylesheet" />
+  <script src="https://unpkg.com/grapesjs"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #111;
+    }
+
+    #editor-wrapper {
+      max-width: 960px;
+      margin: 60px auto;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+      min-height: 85vh;
+    }
+
+    #gjs {
+      height: 70vh;
+      min-height: 500px;
+      background: white;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ABSOLUT WICHTIG! */
+    .gjs-cv-canvas,
+    .gjs-cv-canvas iframe {
+      height: 100% !important;
+      min-height: 100% !important;
+      width: 100% !important;
+      display: block !important;
+      background-color: white !important;
+      position: relative;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+  <div id="editor-wrapper">
+    <div id="gjs"></div>
+  </div>
+
+  <script>
+    const fallbackHTML = `<section style="padding: 40px;"><h1>Canvas sichtbar 🎉</h1><p>Du kannst loslegen!</p></section>`;
+
+    grapesjs.init({
+      container: '#gjs',
+      fromElement: false,
+      height: '100%',
+      width: 'auto',
+      storageManager: false,
+      canvas: {
+        styles: [
+          'html, body { height: 100%; margin: 0; padding: 0; }',
+          'body { background: white; padding: 40px; font-family: sans-serif; color: #222; }'
+        ]
+      },
+      components: fallbackHTML
+    });
+  </script>
+</body>
+</html>
