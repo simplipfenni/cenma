@@ -40,13 +40,22 @@
       firebase.initializeApp(firebaseConfig);
       const db = firebase.firestore();
 
-    const selected = localStorage.getItem("selectedTemplate");
+    const selectedTemplate = localStorage.getItem("selectedTemplate");
       localStorage.removeItem("selectedTemplate");
-
-      if (selected && templates[selected]) {
-        editor.setComponents(templates[selected]);
-      }
-
+      
+      const editor = grapesjs.init({
+        container: '#gjs',
+        height: '100vh',
+        fromElement: false,
+        storageManager: { /* dein Storage Setup */ },
+        plugins: ['gjs-blocks-basic'],
+        pluginsOpts: {},
+      });
+      
+      // Lade das Template (sofern gewählt)
+      if (selectedTemplate && window.templates[selectedTemplate]) {
+        editor.setComponents(window.templates[selectedTemplate]);
+    }    
     
     const editor = grapesjs.init({
       container: '#editor',
