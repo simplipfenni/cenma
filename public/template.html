@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Template Auswahl | Cenma</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
+
+    <div id="wrapper">
+
+      <!-- Header -->
+      <header id="header">
+        <div class="logo">
+          <span class="icon fa-clone"></span>
+        </div>
+        <div class="content">
+          <div class="inner">
+            <h1>Vorlage wählen</h1>
+            <p>Wähle ein Template aus, mit dem du starten möchtest</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main -->
+      <div id="main">
+        <article id="template">
+          <h2 class="major">Templates</h2>
+
+          <div class="template-grid">
+            <a class="button primary fit" onclick="selectTemplate('blank')">🟩 Leere Seite</a>
+            <a class="button fit" onclick="selectTemplate('business')">💼 Business Card</a>
+            <a class="button fit" onclick="selectTemplate('love')">❤️ Love Memories</a>
+            <a class="button fit" onclick="selectTemplate('family')">👨‍👩‍👧 Family</a>
+            <a class="button fit" onclick="selectTemplate('celebration')">🎉 Celebration</a>
+            <a class="button fit" onclick="selectTemplate('event')">📅 Event</a>
+          </div>
+
+          <ul class="actions stacked">
+            <li><a href="index.html" class="button small">Zurück</a></li>
+          </ul>
+        </article>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <p class="copyright">&copy; Cenma. Design basiert auf: <a href="https://html5up.net">HTML5 UP</a>.</p>
+      </footer>
+    </div>
+
+    <div id="bg"></div>
+
+    <script>
+      function selectTemplate(id) {
+        localStorage.setItem("selectedTemplate", id);
+        window.location.href = "editor.html";
+      }
+    </script>
+  </body>
+</html>
