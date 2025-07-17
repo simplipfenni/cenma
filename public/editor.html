@@ -93,13 +93,19 @@
 
     // GrapesJS initialisieren
     const editor = grapesjs.init({
-      container: '#editor',
-      fromElement: false,
-      height: '100%',
-      width: 'auto',
-      storageManager: false,
-      components: initialHTML
+    container: '#gjs',
+    height: '100%',
+    width: 'auto',
+    fromElement: false,
+    storageManager: false,
+    canvas: {
+      styles: [
+        'body { background: white; padding: 30px; font-family: sans-serif; }'
+      ]
+    },
+    components: initialHTML
     });
+
 
     // Veröffentlichen-Button
     document.getElementById('saveBtn').onclick = async () => {
