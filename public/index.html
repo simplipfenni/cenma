@@ -52,7 +52,7 @@
 							<article id="builder">
 								<h2 class="major">Build</h2>
 								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
-								<p><a href="template.html" class="button">🧱 Eigene Seite erstellen</a><br /></p>
+								<p><a href="#templates" class="button">🧱 Eigene Seite erstellen</a><br /></p>
 								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
 							</article>
 
@@ -63,6 +63,25 @@
 								<p> <input type="text" id="pageId" placeholder="Seiten-ID eingeben..." />
 				                  <button onclick="showPage()">🔍 Seite anzeigen</button><br />
 								Lorem ipsum dolor sit amet, consectetur et adipiscing elit. Praesent eleifend dignissim arcu, at eleifend sapien imperdiet ac. Aliquam erat volutpat. Praesent urna nisi, fringila lorem et vehicula lacinia quam. Integer sollicitudin mauris nec lorem luctus ultrices. Aliquam libero et malesuada fames ac ante ipsum primis in faucibus. Cras viverra ligula sit amet ex mollis mattis lorem ipsum dolor sit amet.</p>
+							</article>
+
+
+						<!-- Templates -->
+							<article id="template">
+								<h2 class="major">Templates</h2>
+								<span class="image main"><img src="images/pic02.jpg" alt="" /></span>
+
+								 <div class="template-grid">
+								            <a class="button primary fit" onclick="selectTemplate('blank')">🟩 Leere Seite</a>
+								            <a class="button fit" onclick="selectTemplate('business')">💼 Business Card</a>
+								            <a class="button fit" onclick="selectTemplate('love')">❤️ Love Memories</a>
+								            <a class="button fit" onclick="selectTemplate('family')">👨‍👩‍👧 Family</a>
+								            <a class="button fit" onclick="selectTemplate('celebration')">🎉 Celebration</a>
+								            <a class="button fit" onclick="selectTemplate('event')">📅 Event</a>
+								          </div>
+								
+								<p><a href="template.html" class="button">🧱 Eigene Seite erstellen</a><br /></p>
+								<p>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus pharetra. Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero. Mauris aliquet magna magna sed nunc rhoncus amet feugiat tempus.</p>
 							</article>
 
 						<!-- Contact -->
@@ -357,6 +376,13 @@ print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+
+			<script>
+		      function selectTemplate(id) {
+		        localStorage.setItem("selectedTemplate", id);
+		        window.location.href = "editor.html";
+		      }
+		    </script>
 		      <script>
 		          function showPage() {
 		            const id = document.getElementById('pageId').value.trim();
