@@ -34,12 +34,16 @@
       position: relative;
     }
 
-    #editor {
-      min-height: 600px;
-      background: #ffffff;
-      border-radius: 6px;
-      overflow: hidden;
-      z-index: 100;
+   #gjs, 
+    #gjs .gjs-cv-canvas,
+    #gjs .gjs-cv-canvas iframe {
+      position: relative !important;
+      display: block !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      width: 100% !important;
+      height: 100% !important;
+      background: white !important;
     }
 
     #saveBtn {
@@ -66,7 +70,7 @@
 <body>
   <div id="editor-wrapper">
     <button id="saveBtn">Veröffentlichen</button>
-    <div id="editor"></div>
+    <div id="gjs"></div>
   </div>
 
   <script>
@@ -94,7 +98,7 @@
 
     // GrapesJS initialisieren
     const editor = grapesjs.init({
-    container: '#editor',
+    container: '#gjs',
     height: '100%',
     width: 'auto',
     fromElement: false,
