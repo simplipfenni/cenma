@@ -26,46 +26,37 @@
   <button id="saveBtn">Veröffentlichen</button>
 
   <script>
+    // Firebase Setup
     const firebaseConfig = {
-        apiKey: "AIzaSyDoK4LIreG0LMCBDAZ1hry3MGR8bQrKLZw",
-        authDomain: "cenma-me.firebaseapp.com",
-        databaseURL: "https://cenma-me-default-rtdb.europe-west1.firebasedatabase.app",
-        projectId: "cenma-me",
-        storageBucket: "cenma-me.firebasestorage.app",
-        messagingSenderId: "626482599574",
-        appId: "1:626482599574:web:9dec1ea3961fb6d9e4d4b7",
-        measurementId: "G-QW6K5QEVYD"
-      };
-    
-      firebase.initializeApp(firebaseConfig);
-      const db = firebase.firestore();
+      apiKey: "AIzaSyDoK4LIreG0LMCBDAZ1hry3MGR8bQrKLZw",
+      authDomain: "cenma-me.firebaseapp.com",
+      databaseURL: "https://cenma-me-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "cenma-me",
+      storageBucket: "cenma-me.appspot.com",
+      messagingSenderId: "626482599574",
+      appId: "1:626482599574:web:9dec1ea3961fb6d9e4d4b7",
+      measurementId: "G-QW6K5QEVYD"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
+    // Template laden
     const selectedTemplate = localStorage.getItem("selectedTemplate");
-      localStorage.removeItem("selectedTemplate");
-      
-      const editor = grapesjs.init({
-        container: '#gjs',
-        height: '100vh',
-        fromElement: false,
-        storageManager: { /* dein Storage Setup */ },
-        plugins: ['gjs-blocks-basic'],
-        pluginsOpts: {},
-      });
-      
-      // Lade das Template (sofern gewählt)
-      if (selectedTemplate && window.templates[selectedTemplate]) {
-        editor.setComponents(window.templates[selectedTemplate]);
-    }    
-    
+    localStorage.removeItem("selectedTemplate");
+    const initialHTML = (selectedTemplate && window.templates[selectedTemplate]) ? window.templates[selectedTemplate] : '<section><h1>Leeres Projekt</h1><p>Starte mit Inhalt!</p></section>';
+
+    // Editor starten
     const editor = grapesjs.init({
       container: '#editor',
       fromElement: false,
       height: '100%',
       width: 'auto',
       storageManager: false,
-      components: '<section><h1>Hallo Welt</h1><p>Bearbeite mich mit dem Editor.</p></section>'
+      plugins: ['gjs-blocks-basic'],
+      components: initialHTML
     });
 
+    // Button-Event
     document.getElementById('saveBtn').onclick = async () => {
       const html = editor.getHtml();
       const css = editor.getCss();
